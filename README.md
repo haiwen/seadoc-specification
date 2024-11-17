@@ -2,4 +2,4 @@
 
 本仓库包含 SeaTable 编程手册和例子。
 
-编程手册网站:  https://seatable.github.io/seatable-scripts-cn/
+编程手册网站:  https://.github.io/seatable-scripts-cn/

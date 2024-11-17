@@ -5,7 +5,7 @@ site_url: https://seadoc-specification.github.io/seadoc/
 
 repo_name: haiwen/seadoc-specification
 repo_url: https://github.com/haiwen/seadoc-specification/
-edit_uri: edit/master/docs/
+edit_uri: edit/main/docs/
 
 copyright: Copyright &copy; 2024 seafile
 
@@ -52,11 +52,20 @@ markdown_extensions:
 
 # Page tree
 nav:
-  - 引言: README.md
-  - 对象数据结构: data-structure.md
-  - JavaScript 脚本:
-      - 引言: javascript/README.md
-      - Base: javascript/base.md
-      - Output: javascript/output.md
-      - Utils: javascript/utils.md
-      - Context: javascript/context.md
+  - Introduction: readme.md
+  - Seadoc Support Types: support-types.md
+  - Seadoc Data Structure:
+      - Block quote: data-structure/block-quote.md
+      - Callout: data-structure/callout.md
+      - Check list: data-structure/check-list.md
+      - Code block: data-structure/code-block.md
+      - File link: data-structure/file-link.md
+      - Header: data-structure/header.md
+      - Image: data-structure/image.md
+      - Link: data-structure/link.md
+      - List: data-structure/list.md
+      - Mention: data-structure/mention.md
+      - Multi column: data-structure/multi-column.md
+      - Paragraph: data-structure/paragraph.md
+      - Sdoc link: data-structure/sdoc-link.md
+      - Table: data-structure/table.md

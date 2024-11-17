@@ -1,0 +1,1 @@
+# SeaDoc support types
