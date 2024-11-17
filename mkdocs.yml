@@ -1,0 +1,62 @@
+site_name: SeaDoc Specification
+site_author: seafile
+docs_dir: ./docs
+site_url: https://seadoc-specification.github.io/seadoc/
+
+repo_name: haiwen/seadoc-specification
+repo_url: https://github.com/haiwen/seadoc-specification/
+edit_uri: edit/master/docs/
+
+copyright: Copyright &copy; 2024 seafile
+
+theme:
+  name: material
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - bash
+    - javascript
+    - python
+  # icon:
+  logo: assets/seafile-logo.png
+  favicon: assets/favicon.ico
+  # features:
+  # - tabs
+  palette:
+    primary: deep orange
+    accent:
+
+plugins:
+  - search # necessary for search to work
+  - awesome-pages
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/haiwen/seadoc-specification/
+
+# Extensions
+markdown_extensions:
+  - markdown.extensions.admonition
+  - markdown.extensions.attr_list
+  - markdown.extensions.codehilite:
+      guess_lang: true
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+      toc_depth: "1-4"
+  - pymdownx.superfences
+
+# Page tree
+nav:
+  - 引言: README.md
+  - 对象数据结构: data-structure.md
+  - JavaScript 脚本:
+      - 引言: javascript/README.md
+      - Base: javascript/base.md
+      - Output: javascript/output.md
+      - Utils: javascript/utils.md
+      - Context: javascript/context.md
