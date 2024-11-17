@@ -1,7 +1,7 @@
 site_name: SeaDoc Specification
 site_author: seafile
 docs_dir: ./docs
-site_url: https://seadoc-specification.github.io/seadoc/
+site_url: https://haiwen.github.io/seadoc-specification/seadoc/
 
 repo_name: haiwen/seadoc-specification
 repo_url: https://github.com/haiwen/seadoc-specification/
