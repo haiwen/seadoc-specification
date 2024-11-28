@@ -35,7 +35,7 @@ Multi-column nodes includes multiple `column` (required, node) nodes, each repre
   children: [ 
     {
       id: "Z7PecEjoTtaLVRLSjO0eRQ", 
-      type: "columns",
+      type: "column",
       width: 200,
       children: [ 
         {
@@ -52,7 +52,7 @@ Multi-column nodes includes multiple `column` (required, node) nodes, each repre
     },
     {
       id: "G23EMFUapSNSxVfaIoE--BQ",
-      type: "columns",
+      type: "column",
       width: 248,
       children: [ 
         {

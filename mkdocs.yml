@@ -55,17 +55,17 @@ nav:
   - Introduction: readme.md
   - Seadoc Support Types: support-types.md
   - Seadoc Data Structure:
-      - Block quote: data-structure/block-quote.md
+      - Block quote: data-structure/blockquote.md
       - Callout: data-structure/callout.md
-      - Check list: data-structure/check-list.md
-      - Code block: data-structure/code-block.md
-      - File link: data-structure/file-link.md
+      - Check list: data-structure/check_list_item.md
+      - Code block: data-structure/code_block.md
+      - File link: data-structure/file_link.md
       - Header: data-structure/header.md
       - Image: data-structure/image.md
       - Link: data-structure/link.md
       - List: data-structure/list.md
       - Mention: data-structure/mention.md
-      - Multi column: data-structure/multi-column.md
+      - Multi column: data-structure/multi_column.md
       - Paragraph: data-structure/paragraph.md
-      - Sdoc link: data-structure/sdoc-link.md
+      - Sdoc link: data-structure/sdoc_link.md
       - Table: data-structure/table.md
