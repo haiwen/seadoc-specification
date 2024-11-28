@@ -32,42 +32,58 @@ Multi-column nodes includes multiple `column` (required, node) nodes, each repre
       "left": 224
     }
   ]
-  children: [ 
+  "children": [ 
     {
-      id: "Z7PecEjoTtaLVRLSjO0eRQ", 
-      type: "column",
-      width: 200,
-      children: [ 
+      "id": "dypqfMOuTZCKwCa13QQ5-A", 
+      "type": "column",
+      "width": 200,
+      "children": [ 
         {
-          id: 'Vtvx0SEOSZuyrsNug2hhLQ', 
-          type: 'paragraph',
-          children: [
+          "id": 'Vtvx0SEOSZuyrsNug2hhLQ', 
+          "type": 'paragraph',
+          "children": [
             {
-              text: "column 1 content", 
-              id: "D25vYec_T2S68pZx3JKiaw" 
+              "text": "column 1 content", 
+              "id": "D25vYec_T2S68pZx3JKiaw" 
             }
           ]
         }
       ]
     },
     {
-      id: "G23EMFUapSNSxVfaIoE--BQ",
-      type: "column",
-      width: 248,
-      children: [ 
+      "id" "dEUv4oFgS52Awuxt-_h7ZA",
+      "type": "column",
+      "width": 248,
+      "children": [ 
         {
-          id: 'T34vx0SEOSZuyrsNug2hhLQ', 
-          type: 'paragraph',
-          children: [
+          "id": 'T34vx0SEOSZuyrsNug2hhLQ', 
+          "type": 'paragraph',
+          "children": [
             {
-              text: "column 2 content", 
-              id: "R455vYec_T2S68pZx3JKiaw" 
+              "text": "column 2 content", 
+              "id": "R455vYec_T2S68pZx3JKiaw" 
             }
           ]
         }
       ]
     },
-    ...      
+    {
+      "id": "VLqGwLUyQQuEZ6X-nBnq9g",
+      "type": "column",
+      "width": 224,
+      "children": [ 
+        {
+          "id": "FIJxlp7XRbOOVd-Mc-pzoQ", 
+          "type": 'paragraph',
+          "children": [
+            {
+              "text": "column 3 content", 
+              "id": "OEtHz_AlQSO99dj9SiTPug" 
+            }
+          ]
+        }
+      ]
+    },     
   ],
 }
 ```

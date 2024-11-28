@@ -69,3 +69,4 @@ nav:
       - Paragraph: data-structure/paragraph.md
       - Sdoc_link: data-structure/sdoc_link.md
       - Table: data-structure/table.md
+      - video: data-structure/video.md

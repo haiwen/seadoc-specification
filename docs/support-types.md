@@ -21,3 +21,4 @@ All nodes include the following attributes:
 12. paragraph
 13. sdoc_link
 14. table
+15. video
