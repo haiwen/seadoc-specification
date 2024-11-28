@@ -17,7 +17,7 @@ All nodes include the following attributes:
 8. link
 9. list
 10. mention
-11. multi-column
+11. multi_column
 12. paragraph
 13. sdoc_link
 14. table
