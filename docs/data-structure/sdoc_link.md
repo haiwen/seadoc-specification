@@ -1,6 +1,6 @@
 # Sdoc_link
 
-Sdoc_link type nodes reference a link to another Sodc file. Sdoc_link nodes are inline nodes, typically wrapped within `paragraph` nodes. Along with generic node attributes, sdoc_link nodes include the following attributes:
+Sdoc_link type nodes reference a link to another Sdoc file. Sdoc_link nodes are inline nodes, typically wrapped within `paragraph` nodes. Along with generic node attributes, sdoc_link nodes include the following attributes:
 
 - `doc-uuid` (required, string) represents the file address within Sdoc.
 
