@@ -1,28 +1,29 @@
 # Sdoc_link
 
-Sdoc_link type nodes reference a link to another Sdoc file. Sdoc_link nodes are inline nodes, typically wrapped within `paragraph` nodes. Along with generic node attributes, sdoc_link nodes include the following attributes:
+`sdoc_link` is an inline void element that references another SeaDoc file. It normally appears in a [paragraph](paragraph.md). It follows the [void element](../support-types.md#void-elements) placeholder rule.
 
-- `doc-uuid` (required, string) represents the file address within Sdoc.
+## Properties
 
-- `title` (required, string) represents the filename.
+- `doc_uuid` (required, string): referenced SeaDoc file identifier.
+- `title` (required, string): display title.
+- `display_type` (required, string): display mode.
 
-- `display-type` (required, string) represents display type of file.
-
-Sdoc_link nodes contain a `text` node that displays the filename.
-
-## Node structure example
-```javascript  
+```json
 {
-  "id": "afLKcmNdR4ii2ZqvH8PP8w",
+  "id": "sdoc-link-id",
   "type": "sdoc_link",
   "doc_uuid": "c24cee20-88c2-4dba-beb9-4032c5e2c3e1",
-  "title": "aaa.sdoc",
+  "title": "Project plan",
   "display_type": "text_link",
   "children": [
     {
-    "id": "bKfw6ms4QlqUf1J5aFCr4w",
-    "text": "aaa.sdoc"
+      "id": "sdoc-link-text-id",
+      "text": "Project plan"
     }
   ]
 }
 ```
+
+## Compatibility
+
+Historical documents may retain the `.sdoc` suffix in `title` and displayed text. New documents use the suffix-free display form. Compatibility and migration behavior may depend on the reader implementation.

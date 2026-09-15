@@ -1,44 +1,53 @@
 # Code_block
 
-Code_block type nodes represent a block of code. Along with generic node attributes, code_block nodes include the following attribute:
+`code_block` is a block element with the following structure:
 
-- `language` (required, string) specifies the programming language used in the code. The default value is 'plaintext'.
+```text
+code_block -> code_line -> text leaf
+```
 
-- `white_space` (requires, string) specifies how white space should be handled in the block. The default value is 'nowrap'.
+`code_line` is a structural child type. Each code line contains text leaves representing one code line.
 
-Code_block nodes contains `code-line` child nodes, where each code-line node represents a single line of the code. Each code-line node holds a `text` node that displays the code content.
+## Required properties
 
-## Node structure example
-```javascript  
+- `language` (required, string): programming language.
+
+## Editor-created defaults
+
+- `language` may be an empty string or `plaintext` when no programming language is set.
+- `style.white_space` is `nowrap` for a newly-created block.
+
+`language` is the native `.sdoc` field.
+
+```json
 {
-  "id": "Sgs2yIs4RHO4YVRb0rGunQ",
+  "id": "code-block-id",
   "type": "code_block",
   "language": "javascript",
   "style": {
-      "white_space": "nowrap"
+    "white_space": "nowrap"
   },
   "children": [
     {
-      "id": "N4QoQh3-RFSQzvaTgJityQ",
+      "id": "code-line-one-id",
       "type": "code_line",
       "children": [
         {
-          "text": "code content1",
-          "id": "P95HPWnYTay4FkT1BQ27tw"
+          "id": "code-text-one-id",
+          "text": "const value = 1;"
         }
       ]
-    }, 
+    },
     {
-      "id": "DKbt3HrRSY6A5zYEI3UEpg",
+      "id": "code-line-two-id",
       "type": "code_line",
       "children": [
         {
-          "text": "code content2';",
-          "id": "O3Hcb450Q5Cd1inMrjksYw"
+          "id": "code-text-two-id",
+          "text": "console.log(value);"
         }
       ]
     }
-    ...
   ]
 }
 ```

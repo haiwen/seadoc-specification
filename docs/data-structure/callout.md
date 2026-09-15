@@ -1,24 +1,29 @@
 # Callout
-Callout type nodes are used to highlight specific content, often for emphasis. Along with generic node attributes, callout nodes include the following attribute:
 
-- `background_color` (required, string)  represents the highlighted background color. The default value is '#fef7e0'.
+`callout` is a block container used to emphasize content.
 
-Callout nodes contain a `paragraph` node, which in turn holds a `text` node that display the callout content.
+## Properties
 
-## Node structure example
-```javascript  
+- `style` (required, object): callout style.
+- `style.background_color` (required, string): background color. The editor-created default is `#fef7e0`.
+
+Callout content is stored in `children`. A paragraph is the common initial content structure, but this page does not impose a narrower child grammar than the persisted format requires.
+
+```json
 {
-  "id": "U2DUIYK1T6qEAtCORbB1ZA", 
+  "id": "callout-id",
   "type": "callout",
-  "style": { "background_color": "#fef7e0" }
+  "style": {
+    "background_color": "#fef7e0"
+  },
   "children": [
     {
-      "id": "cCs57hn6SfmVHclXYzZ6RQ",
+      "id": "callout-paragraph-id",
       "type": "paragraph",
       "children": [
         {
-        "id": "JT6oOyplQm-270FdGw_M-A",
-        "text": "Callout content"
+          "id": "callout-text-id",
+          "text": "Callout content"
         }
       ]
     }

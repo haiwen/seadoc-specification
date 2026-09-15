@@ -1,65 +1,68 @@
 # Image
 
-Image-related type nodes represent images within Sdoc. Image-related nodes consist of the following node types:
+Image-related nodes are `image` and `image_block`.
 
-**Image nodes**
+## Image
 
-`image` nodes are inline nodes, typically wrapped within `paragraph` nodes. Along with generic node attributes, image nodes include the following attribute:
+`image` is an inline void element. It normally appears in a [paragraph](paragraph.md) or another text container. It follows the [void element](../support-types.md#void-elements) placeholder rule.
 
-  - `data` (required, object) contains `src` (required, string) field that specifies the image address within Sdoc.
+### Properties
 
-**Image_block nodes**
+- `data` (required, object): image data.
+- `data.src` (required, string): image source.
+- `data.href` (optional, string): link target for the image.
+- `data.linked_wiki_id` (optional, string): target wiki ID for a wiki-page image link.
+- `data.linked_wiki_page_id` (optional, string): target wiki page ID for a wiki-page image link.
 
-`Image_block` nodes represents block-level element containing a single inline image node that spans the entire width of the block.
-
-
-
-## Node structure example
-
-### Image nodes
-```javascript  
+```json
 {
-  "id": "c-GkcbFsS3uuYNtMgsg2mQ",
+  "id": "image-id",
   "type": "image",
   "data": {
-    "src": "/image-aYZp6SvrTQyBbMOkxo0s6Q.png"
-  }
+    "src": "/image.png",
+    "href": "https://cloud.example.com/wikis/wiki-id/page-id/",
+    "linked_wiki_id": "wiki-id",
+    "linked_wiki_page_id": "page-id"
+  },
   "children": [
     {
-      "id": "PUoT91gOSoS8hB-HObsD1g",
-      "text": "",
+      "id": "image-placeholder-id",
+      "text": ""
     }
   ]
 }
 ```
 
-### Image_block nodes
-```javascript  
+## Image_block
+
+`image_block` is a block-level wrapper for an inline `image`. Its children may include empty text leaves before or after the image as structural placeholders. Consumers must not require an `image_block` to contain only one child.
+
+```json
 {
-  "id": "S927zAqWQHOkmLEvFespbw",
+  "id": "image-block-id",
   "type": "image_block",
   "children": [
     {
-      "id": "AW53tbxhQYu-HfoSNTfVxQ",
-      "text": "",
-    }, 
+      "id": "before-image-id",
+      "text": ""
+    },
     {
-      "id": "c-GkcbFsS3uuYNtMgsg2mQ",
+      "id": "image-id",
       "type": "image",
       "data": {
-        "src": "/image-aYZp6SvrTQyBbMOkxo0s6Q.png"
-      }
+        "src": "/image.png"
+      },
       "children": [
         {
-          "id": "PUoT91gOSoS8hB-HObsD1g",
-          "text": "",
+          "id": "image-placeholder-id",
+          "text": ""
         }
       ]
     },
     {
-      "id": "AW53tbxhQYu-HfoSNTfVxQ",
-      "text": "",
-    }, 
+      "id": "after-image-id",
+      "text": ""
+    }
   ]
 }
 ```
