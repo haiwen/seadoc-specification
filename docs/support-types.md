@@ -120,24 +120,22 @@ The following element types are named in this specification release. This list i
 5. divider
 6. embed_link
 7. file_link
-8. file_view
-9. formula
-10. header1 through header6
-11. image
-12. image_block
-13. link
-14. mention
-15. multi_column
-16. ordered_list
-17. paragraph
-18. sdoc_link
-19. subtitle
-20. table
-21. title
-22. toggle_header
-23. unordered_list
-24. video
-25. whiteboard
+8. formula
+9. header1 through header6
+10. image
+11. image_block
+12. link
+13. mention
+14. multi_column
+15. ordered_list
+16. paragraph
+17. sdoc_link
+18. subtitle
+19. table
+20. title
+21. unordered_list
+22. video
+23. whiteboard
 
 ### Structural element types
 
@@ -147,5 +145,3 @@ The following types occur only as children of their owning content element:
 - `table_row` within `table`.
 - `table_cell` within `table_row`.
 - `column` within `multi_column`.
-- `toggle_header1`, `toggle_header2`, and `toggle_header3` within `toggle_header`.
-- `toggle_content` within an expanded `toggle_header`.

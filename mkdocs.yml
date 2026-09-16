@@ -61,7 +61,6 @@ nav:
       - Code_block: data-structure/code_block.md
       - Embed link: data-structure/embed_link.md
       - File_link: data-structure/file_link.md
-      - File view: data-structure/file_view.md
       - Header: data-structure/header.md
       - Image: data-structure/image.md
       - Link: data-structure/link.md
@@ -71,6 +70,5 @@ nav:
       - Paragraph: data-structure/paragraph.md
       - Sdoc_link: data-structure/sdoc_link.md
       - Table: data-structure/table.md
-      - Toggle header: data-structure/toggle_header.md
       - Video: data-structure/video.md
       - Whiteboard: data-structure/whiteboard.md
