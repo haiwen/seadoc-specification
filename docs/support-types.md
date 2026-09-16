@@ -67,6 +67,35 @@ A void element stores its user-visible content in element properties rather than
 }
 ```
 
+#### Divider
+
+`divider` is a block-level void element representing a horizontal divider. It has no additional properties.
+
+Historical documents may contain `type: "hr"`. New documents use `type: "divider"`. Compatibility and migration behavior may depend on the reader implementation.
+
+#### Formula
+
+`formula` is a block-level void element. Its formula source is stored in `data.formula`.
+
+- `data` (required, object): formula data.
+- `data.formula` (required, string): formula source.
+
+```json
+{
+  "id": "formula-id",
+  "type": "formula",
+  "data": {
+    "formula": "E = mc^2"
+  },
+  "children": [
+    {
+      "id": "formula-placeholder-id",
+      "text": ""
+    }
+  ]
+}
+```
+
 ### Rich-text marks
 
 Text leaves may carry the following formatting fields:
