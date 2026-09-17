@@ -65,7 +65,6 @@ nav:
       - Image: data-structure/image.md
       - Link: data-structure/link.md
       - List: data-structure/list.md
-      - Mention: data-structure/mention.md
       - Multi_column: data-structure/multi_column.md
       - Paragraph: data-structure/paragraph.md
       - Sdoc_link: data-structure/sdoc_link.md

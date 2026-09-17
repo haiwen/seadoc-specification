@@ -125,17 +125,16 @@ The following element types are named in this specification release. This list i
 10. image
 11. image_block
 12. link
-13. mention
-14. multi_column
-15. ordered_list
-16. paragraph
-17. sdoc_link
-18. subtitle
-19. table
-20. title
-21. unordered_list
-22. video
-23. whiteboard
+13. multi_column
+14. ordered_list
+15. paragraph
+16. sdoc_link
+17. subtitle
+18. table
+19. title
+20. unordered_list
+21. video
+22. whiteboard
 
 ### Structural element types
 
