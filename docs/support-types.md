@@ -1,24 +1,146 @@
 # SeaDoc support node types
 
-## Generic nodes
-All nodes include the following attributes:  
-`id` (required, string) represents a unique ID, a random UUID string with 22 characters for the node.  
-`type` (required, string) represents the node type.  
-`children` (required, array) represents an array of child nodes. The innermost within children are always text nodes.
+## Document format
+
+SeaDoc documents stored on disk use `format_version: 4`. The persisted document envelope is:
+
+```json
+{
+  "version": 1,
+  "format_version": 4,
+  "elements": [],
+  "last_modify_user": "user@example.com"
+}
+```
+
+- `version` is required and records the document revision number.
+- `format_version` is required and is `4` for the current on-disk format.
+- `elements` is required and contains the top-level element nodes.
+- `last_modify_user` is required and records the last modifying user. It may be an empty string when no user is available.
+
+`cursors` is runtime collaboration response state. It is not part of the on-disk `.sdoc` format.
+
+## Nodes
+
+Every node `id` is a required, non-empty string that is unique within its document. Consumers must not require a particular UUID or slug format.
+
+### Element nodes
+
+An element node normally has:
+
+- `id` (required, string): unique node identifier.
+- `type` (required, string): element type.
+- `children` (required, array): child nodes.
+
+Some elements have additional fields or a `data` object. See the page for that element type.
+
+### Text leaves
+
+A text leaf has:
+
+- `id` (required, string): unique node identifier.
+- `text` (required, string): displayed text.
+
+Text leaves do not require `type` or `children`. For example:
+
+```json
+{
+  "id": "text-id",
+  "text": "Text content"
+}
+```
+
+### Void elements
+
+A void element stores its user-visible content in element properties rather than editable text. It still has `children`. The empty text leaf in `children` is a structural placeholder, not user content. Void does not mean the element has no `children`.
+
+```json
+{
+  "id": "element-id",
+  "type": "divider",
+  "children": [
+    {
+      "id": "placeholder-id",
+      "text": ""
+    }
+  ]
+}
+```
+
+#### Divider
+
+`divider` is a block-level void element representing a horizontal divider. It has no additional properties.
+
+Historical documents may contain `type: "hr"`. New documents use `type: "divider"`. Compatibility and migration behavior may depend on the reader implementation.
+
+#### Formula
+
+`formula` is a block-level void element. Its formula source is stored in `data.formula`.
+
+- `data` (required, object): formula data.
+- `data.formula` (required, string): formula source.
+
+```json
+{
+  "id": "formula-id",
+  "type": "formula",
+  "data": {
+    "formula": "E = mc^2"
+  },
+  "children": [
+    {
+      "id": "formula-placeholder-id",
+      "text": ""
+    }
+  ]
+}
+```
+
+### Rich-text marks
+
+Text leaves may carry the following formatting fields:
+
+- `bold`, `italic`, `underline`, `strikethrough`, `superscript`, `subscript`, and `code` (optional, boolean).
+- `color` and `highlight_color` (optional, string).
+- `font_size` (optional, number).
+- `font` (optional, string).
+
+Revision, diff, comment, selection, cursor, AI, and syntax-decoration fields are not ordinary rich-text formatting fields in this specification.
 
 ## Node types
+
+### Content element types
+
+The following element types are named in this specification release. This list is not a complete inventory of every element accepted by existing SeaDoc implementations. A name in this list does not mean the type has a dedicated structure page.
+
 1. blockquote
 2. callout
 3. check_list_item
 4. code_block
-5. file_link
-6. header
-7. image
-8. link
-9. list
-10. mention
-11. multi_column
-12. paragraph
-13. sdoc_link
-14. table
-15. video
+5. divider
+6. embed_link
+7. file_link
+8. formula
+9. header1 through header6
+10. image
+11. image_block
+12. link
+13. multi_column
+14. ordered_list
+15. paragraph
+16. sdoc_link
+17. subtitle
+18. table
+19. title
+20. unordered_list
+21. video
+22. whiteboard
+
+### Structural element types
+
+The following types occur only as children of their owning content element:
+
+- `code_line` within `code_block`.
+- `table_row` within `table`.
+- `table_cell` within `table_row`.
+- `column` within `multi_column`.

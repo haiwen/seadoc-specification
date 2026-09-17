@@ -1,40 +1,33 @@
 # Video
 
-Video type nodes represents video content. Along with generic node attributes, video nodes include `data`(required, object) attribute with the following properties:
+`video` is a block-level void element. It follows the [void element](../support-types.md#void-elements) placeholder rule.
 
-- `src` (required, string) specifies the video address within Sdoc.
+## Required properties
 
-- `videoFiles` (required, object) provides metadata about the video file, containing the following attributes: 
+- `data` (required, object): video data.
+- `data.src` (required, string): video source.
 
-    - `filename` (required, string) is the name of the video file.
-    
-    - `lastModified`(required, number) indicates the timestamp of the last modification in milliseconds since the Unix epoch.
-    
-    - `lastModifiedDate`(required, Date) specifies the date and time when the video file was last modified.
-    
-    - `size`(required, number) is the size of the video file in bytes.
+## Optional properties
+- `data.name` (optional, string or null): video filename or display name.
+- `data.size` (optional, number or null): size in bytes.
+- `data.is_embeddable_link` (optional, boolean): whether `src` is an embeddable video link. The default is `false`.
+- `data.width` (optional, number): saved display width.
 
-
-Video nodes contain an empty `text` node.
-
-## Node structure example
-```javascript
+```json
 {
-  "id": "c5o2vli_St6hAQyHdvwGkg",
+  "id": "video-id",
   "type": "video",
   "data": {
-    "src": "/video-Hd3JcWkARqyJ-I0geiIgPQ.mov",
-    "videoFiles": {
-      "name": "video name.mov",
-      "lastModified": 1731406823157,
-      "lastModifiedDate": Tue Nov 12 2024 18:20:23 GMT+0800,
-      "size": 2357967
-    }
-  }
+    "src": "/video.mp4",
+    "name": "video.mp4",
+    "size": 2357967,
+    "is_embeddable_link": false,
+    "width": 640
+  },
   "children": [
     {
-      "id": "YcA-XKAAQf6Ff7V7Xj4KaA",
-      "text": "",
+      "id": "video-placeholder-id",
+      "text": ""
     }
   ]
 }

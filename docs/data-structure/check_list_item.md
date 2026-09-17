@@ -1,18 +1,22 @@
 # Check_list_item
 
-Check_list_item type nodes represent items in a checklist. Check_list_item nodes always start with a checkbox that tracks whether the item is completed or checked.
+`check_list_item` is a block element representing a checklist item.
 
-Each check_list_item nodes contain a `text` node that displays the content of checklist item.
+## Properties
 
-## Node structure example
-```javascript  
+- `checked` (required, boolean): completion state. The editor-created default is `false`.
+
+Its `children` contain text leaves and supported inline elements.
+
+```json
 {
-  "id": "Sgs2yIs4RHO4YVRb0rGunQ",
+  "id": "check-list-id",
   "type": "check_list_item",
+  "checked": false,
   "children": [
     {
-      "id": "FySw4pSBTjuqhKzBhEwP_A", 
-      "text": "checklist content"
+      "id": "check-list-text-id",
+      "text": "Checklist content"
     }
   ]
 }

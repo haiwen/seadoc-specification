@@ -1,75 +1,75 @@
 # Table
 
-Table type nodes represent a table. Along with generic node attributes, table nodes include the following attributes:
-- `gridTemplateColumns` (required, string) specifies the column layout using CSS grid syntax, defining the number of columns and their respective widths.
+`table` is a block element with the following structural hierarchy:
 
-- `gridAutoRows` (required, string) specifies the minimum height for each row.
+```text
+table -> table_row -> table_cell
+```
 
-- `columns` (required, array) defines an array of width of each column metadata.
+`table_row` and `table_cell` are structural element types. They are not independent top-level content elements. Newly-created cells typically contain text leaves or inline content.
 
-Table nodes includes `table_row`(required, node) child nodes, representing rows within table. Each table_row node contains `table_cell`(required, node) child nodes, representing individual cells within a row. Each table_cell node contains a `text` node that displays the content of th cell.
+## Editor-created defaults
 
-## Node structure example
-```javascript  
+A newly-created rectangular table has these layout fields:
+
+- `columns` (required for newly-created tables, array): column width metadata. Each item has `width`.
+- `ui` (required for newly-created tables, object): table display metadata such as `alternate_highlight`.
+- `style.gridTemplateColumns` (required for newly-created tables, string): CSS grid column layout.
+- `style.gridAutoRows` (required for newly-created tables, string): CSS grid row layout.
+- `table_row.style.min_height` (required for newly-created rows, number): row minimum height.
+- `table_cell.style` (required for newly-created cells, object): cell style.
+- `table_cell.inherit_style` (required for newly-created cells, object): style inherited by inserted cells.
+
+New table cells use `style.align_items` for vertical alignment.
+
+```json
 {
-  "id": "G70G_NH_QF-WvJLlFPG1bg",
+  "id": "table-id",
   "type": "table",
-  "style": {
-    "gridAutoRows": "minmax(42px, auto)", 
-    "gridTemplateColumns": "repeat(2, 336px)"
-  }
   "columns": [
     { "width": 336 },
     { "width": 336 }
-  ]
+  ],
+  "ui": {
+    "alternate_highlight": false
+  },
+  "style": {
+    "gridTemplateColumns": "repeat(2, 336px)",
+    "gridAutoRows": "minmax(42px, auto)"
+  },
   "children": [
     {
-      "id": "Mr8wLrYBQOeKlvni1HywUw",
+      "id": "row-id",
       "type": "table_row",
-      "style": { "min_height": 42 }
+      "style": {
+        "min_height": 42
+      },
       "children": [
         {
-          "id": "BiWIgCy0TqecA3DsXqOh7Q",
+          "id": "cell-id",
           "type": "table_cell",
-          "children": [{
-              "text": "name",
-              "id": "KlwwLiWAQVi7uLQlRuJjdg"
-          }]
-        }, 
-        {
-          "id": "Tpx8x7afTzWhjCcBxmus2g",
-          "type": "table_cell",
-          "children": [{
-              "text": "class",
-              "id": "M13HGrtGSV6e0g-dB8cw3A"
-          }]
+          "style": {
+            "text_align": "left",
+            "align_items": "center",
+            "background_color": ""
+          },
+          "inherit_style": {
+            "text_align": "left",
+            "background_color": ""
+          },
+          "children": [
+            {
+              "id": "cell-text-id",
+              "text": "Name"
+            }
+          ]
         }
-      ],
-    }, 
-    {
-      "id": "Mr8wLrYBQOeKlvni1HywUw",
-      "type": "table_row",
-      "style": { "min_height": 42 }
-      "children": [
-        {
-          "id": "BiWIgCy0TqecA3DsXqOh7Q",
-          "type": "table_cell",
-          "children": [{
-              "text": "name",
-              "id": "KlwwLiWAQVi7uLQlRuJjdg"
-          }]
-        }, 
-        {
-          "id": "Tpx8x7afTzWhjCcBxmus2g",
-          "type": "table_cell",
-          "children": [{
-              "text": "class",
-              "id": "M13HGrtGSV6e0g-dB8cw3A"
-          }]
-        }
-      ],
-    }, 
-    ...
+      ]
+    }
   ]
 }
 ```
+
+## Compatibility
+
+Historical documents may contain `style.alignItems`. New documents use `style.align_items`. Compatibility and migration behavior may depend on the reader implementation.

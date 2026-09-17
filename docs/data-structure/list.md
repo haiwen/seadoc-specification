@@ -16,7 +16,7 @@ Each list_item node contains a `paragraph` node, which in turn holds a `text` no
 ## Node structure example
 
 ### Ordered_list nodes
-```javascript  
+```json
 {
   "id": "S927zAqWQHOkmLEvFespbw",
   "type": "ordered_list",
@@ -48,13 +48,12 @@ Each list_item node contains a `paragraph` node, which in turn holds a `text` no
           }
         ]
       }]
-    },
-    ...
+    }
   ]
 }
 ```
 ### Unordered_list nodes
-```javascript  
+```json
 {
   "id": "S927zAqWQHOkmLEvFespbw",
   "type": "unordered_list",
@@ -86,8 +85,7 @@ Each list_item node contains a `paragraph` node, which in turn holds a `text` no
           }
         ]
       }]
-    },
-    ...
+    }
   ]
 }
 ```

@@ -1,89 +1,73 @@
 # Multi column
 
-Multi-column type nodes represent a layout with multiple columns, useful for displaying content in a structured and side-by-side format. Along with generic node attributes, multi-column nodes include the following attributes:
+`multi_column` is a block layout element. Its direct children are `column` structural elements.
 
-- `gridTemplateColumns` (required, string) specifies the column layout using CSS grid syntax, defining the number of columns and their respective widths.
+## Editor-created defaults
 
-- `columns` (required, array) defines an array of width and left position of each column.
+- `column` (required for newly-created layouts, array): column metadata. Each item contains `key`, `width`, and may contain `left`.
+- `style.gridTemplateColumns` (required for newly-created layouts, string): CSS grid column layout.
 
-Multi-column nodes includes multiple `column` (required, node) nodes, each representing an individual column in the layout. Each column node contains a `paragraph` node, which in turn holds a `text` node that displays the column content.
+Each child `column` has:
 
-## Node structure example
-```javascript  
+- `id` (required, string): normally corresponding to the metadata `key`.
+- `type` (required): `column`.
+- `width` (required for newly-created columns, number).
+- `children` (required, array): block content. A new column begins with a paragraph and text leaf.
+
+```json
 {
-
-  "id": "ZO5pAIMaTLyuKMUswc02NA",
-  "type": "multi_column", 
-  "style": "repeat(3, 224px)",
-  "columns": [
+  "id": "multi-column-id",
+  "type": "multi_column",
+  "column": [
     {
-      "key": "dypqfMOuTZCKwCa13QQ5-A", 
-      "width": 200, 
-      "left": 200
+      "key": "column-one-id",
+      "width": 300,
+      "left": 0
     },
     {
-      "key": "dEUv4oFgS52Awuxt-_h7ZA", 
-      "width": 248, 
-      "left": 248
+      "key": "column-two-id",
+      "width": 300,
+      "left": 300
     }
+  ],
+  "style": {
+    "gridTemplateColumns": "repeat(2, 300px)"
+  },
+  "children": [
     {
-      "key": "VLqGwLUyQQuEZ6X-nBnq9g", 
-      "width": 224, 
-      "left": 224
+      "id": "column-one-id",
+      "type": "column",
+      "width": 300,
+      "children": [
+        {
+          "id": "paragraph-one-id",
+          "type": "paragraph",
+          "children": [
+            {
+              "id": "text-one-id",
+              "text": "Column one content"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "column-two-id",
+      "type": "column",
+      "width": 300,
+      "children": [
+        {
+          "id": "paragraph-two-id",
+          "type": "paragraph",
+          "children": [
+            {
+              "id": "text-two-id",
+              "text": "Column two content"
+            }
+          ]
+        }
+      ]
     }
   ]
-  "children": [ 
-    {
-      "id": "dypqfMOuTZCKwCa13QQ5-A", 
-      "type": "column",
-      "width": 200,
-      "children": [ 
-        {
-          "id": 'Vtvx0SEOSZuyrsNug2hhLQ', 
-          "type": 'paragraph',
-          "children": [
-            {
-              "text": "column 1 content", 
-              "id": "D25vYec_T2S68pZx3JKiaw" 
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id" "dEUv4oFgS52Awuxt-_h7ZA",
-      "type": "column",
-      "width": 248,
-      "children": [ 
-        {
-          "id": 'T34vx0SEOSZuyrsNug2hhLQ', 
-          "type": 'paragraph',
-          "children": [
-            {
-              "text": "column 2 content", 
-              "id": "R455vYec_T2S68pZx3JKiaw" 
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "VLqGwLUyQQuEZ6X-nBnq9g",
-      "type": "column",
-      "width": 224,
-      "children": [ 
-        {
-          "id": "FIJxlp7XRbOOVd-Mc-pzoQ", 
-          "type": 'paragraph',
-          "children": [
-            {
-              "text": "column 3 content", 
-              "id": "OEtHz_AlQSO99dj9SiTPug" 
-            }
-          ]
-        }
-      ]
-    },     
-  ],
 }
 ```
