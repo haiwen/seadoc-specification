@@ -60,7 +60,7 @@ Void elements are treated as a single unit rather than exposing their children a
 - **Block elements**: [`divider`](data-structure/divider.md) and [`formula`](data-structure/formula.md).
 - **Inline elements**: [`image`](data-structure/image.md) and [`sdoc_link`](data-structure/sdoc_link.md).
 
-Block and inline void elements follow the same placeholder rule: they still have `children`, and the empty text leaf is a structural placeholder rather than user content. Their visible content is stored in element properties rather than editable child text.
+Block and inline void elements still have `children`. Most, including block void elements and inline images, contain an empty text leaf as a structural placeholder, with visible content stored in element properties. File links and SeaDoc links can retain their display names in text children. Those stored labels are not editable child content; void elements do not require every persisted text child to be empty.
 
 For example, a [`divider`](data-structure/divider.md) has the following structure:
 

@@ -1,10 +1,16 @@
 # Header
 
-Header type nodes represent the header content, supporting six header type nodes (`header1`  to `header6`). `title` and `subtitle` use the same node shape, with `type` set to `title` or `subtitle`. They do not have separate structure pages.
+`header1` through `header6` are block element nodes that represent six levels of headings. `title` and `subtitle` represent document titles and subtitles and use the same node structure.
 
-Header nodes contain text leaves that display the header content.
+## Usage and Children
 
-## Node structure example
+- They can appear in the document's `elements` list or inside a [blockquote](blockquote.md), [callout](callout.md), or [column](multi_column.md).
+- Their `children` directly contain [text nodes](text.md) and supported inline elements, such as [links](link.md). Content following a heading remains in sibling blocks, rather than becoming its children.
+- The editor moves images out of `header1` through `header6` into a following paragraph.
+- Set `type` to `title` or `subtitle` to use the same structure for a title or subtitle.
+
+## Data Structure
+
 ```json
 {
   "id": "G1opTnrHRr6aX7qbJXZJiw",

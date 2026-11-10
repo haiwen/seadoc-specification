@@ -1,13 +1,20 @@
 # Formula
 
-`formula` is a block-level void element. Its formula source is stored in `data.formula`. It follows the [void element](../support-types.md#void-elements) placeholder rule.
+`formula` is a block element node that represents a mathematical formula. It is a void element whose formula source is stored in `data.formula`.
 
-## Required Properties
+## Usage and Children
+
+- It normally appears as a standalone block in the document's `elements` list.
+- Its `children` contain one empty [text node](text.md) as a structural placeholder. The formula source is stored in `data.formula`, rather than in editable child text. See [Void Elements](../support-types.md#void-elements).
+
+## Data Structure
+
+### Required Properties
 
 - `data` (required, object): formula data.
-- `data.formula` (required, string): formula source.
+- `data.formula` (required, string): TeX/LaTeX math source passed to the editor's MathJax renderer, such as `E = mc^2` or `\frac{a}{b}`. Store the math source without surrounding `$`, `$$`, `\(`, or `\[` delimiters. Backslashes must be escaped in JSON, for example `"\\frac{a}{b}"`. An empty string has no visible formula content; supported commands depend on the reader's MathJax configuration.
 
-## Node Structure Example
+### Example
 
 ```json
 {

@@ -1,10 +1,15 @@
 # Paragraph
 
-Paragraph type nodes are basic content nodes to present inline text. Paragraph nodes act as the foundational block for textual content and support a variety of inline formatting.
+`paragraph` is a block element node that represents a paragraph of rich text.
 
-Paragraph nodes contain a `text` node that displays the actual text content.
+## Usage and Children
 
-## Node structure example
+- It can appear in the document's `elements` list or inside a [blockquote](blockquote.md), [callout](callout.md), [list item](list.md), or [column](multi_column.md).
+- Its `children` directly contain [text nodes](text.md) and supported inline elements, such as [links](link.md), [images](image.md), [file links](file_link.md), and [SeaDoc links](sdoc_link.md).
+- Plain text does not require an inline wrapper. A paragraph does not contain other block elements.
+
+## Data Structure
+
 ```json
 {
   "id": "afLKcmNdR4ii2ZqvH8PP8w",

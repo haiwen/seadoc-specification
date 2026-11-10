@@ -1,8 +1,13 @@
 # Divider
 
-`divider` is a block-level void element representing a horizontal divider. It has no additional properties. It follows the [void element](../support-types.md#void-elements) placeholder rule.
+`divider` is a block element node that represents a horizontal divider. It is a void element and has no additional properties.
 
-## Node Structure Example
+## Usage and Children
+
+- It normally appears as a standalone block in the document's `elements` list to separate sections of content.
+- Its `children` contain one empty [text node](text.md) as a structural placeholder, rather than editable content. See [Void Elements](../support-types.md#void-elements).
+
+## Data Structure
 
 ```json
 {
@@ -17,6 +22,6 @@
 }
 ```
 
-## Compatibility
+### Compatibility
 
 Historical documents may contain `type: "hr"`. New documents use `type: "divider"`. Compatibility and migration behavior may depend on the reader implementation.

@@ -1,18 +1,37 @@
 # Multi column
 
-`multi_column` is a block layout element. Its direct children are `column` structural elements.
+`multi_column` is a block element node that arranges document content into columns.
 
-## Editor-created defaults
+## Usage and Children
 
-- `column` (required for newly-created layouts, array): column metadata. Each item contains `key`, `width`, and may contain `left`.
-- `style.gridTemplateColumns` (required for newly-created layouts, string): CSS grid column layout.
+- It normally appears in the document's top-level `elements` list.
+- Its direct `children` are `column` structural elements. A `column` must belong to a `multi_column`; it is not an independent top-level element.
+- A column contains block content, including [paragraphs](paragraph.md) and supported nested blocks such as [blockquotes](blockquote.md), [callouts](callout.md), [lists](list.md), and [code blocks](code_block.md).
+- A new column starts with a paragraph containing an empty text node. Text and inline elements belong inside its child blocks.
+
+## Data Structure
+
+### Editor-Created Defaults
+
+- `column` (required for newly-created layouts, array): ordered column metadata.
+- `style.gridTemplateColumns` (required for newly-created layouts, string): CSS grid column track list, such as `repeat(2, 300px)` or `250px 350px`. This CSS string includes length units.
+
+Each `column` metadata item has:
+
+- `key` (required, string): non-empty identifier matching its child column's `id`.
+- `width` (required, number): positive, finite width in CSS pixels (`px`), without a unit suffix in JSON.
+- `left` (optional, number): non-negative, finite horizontal layout metadata in CSS pixels (`px`). Readers can derive column positions from the ordered widths without requiring this field.
+
+Initial widths are calculated from the available editor width and column count. The editor uses an `80px` minimum when creating or resizing columns; this interaction limit is not a lower bound on every historical layout.
 
 Each child `column` has:
 
 - `id` (required, string): normally corresponding to the metadata `key`.
 - `type` (required): `column`.
-- `width` (required for newly-created columns, number).
+- `width` (required for newly-created columns, number): positive, finite width in CSS pixels (`px`), without a unit suffix in JSON. The editor initializes it from the parent column metadata and prefers the matching metadata width when rendering after layout changes.
 - `children` (required, array): block content. A new column begins with a paragraph and text leaf.
+
+### Example
 
 ```json
 {
