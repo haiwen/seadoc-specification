@@ -1,6 +1,6 @@
 # SeaDoc Document Model
 
-This page describes the SeaDoc document format, node hierarchy, and content element types. Follow the links to individual node pages for detailed data structures.
+This page describes the SeaDoc document format, node hierarchy, and element types. Follow the links to individual node pages for detailed data structures.
 
 ## Document Format
 
@@ -97,9 +97,7 @@ See [Text](data-structure/text.md) for the full text node documentation, includi
 
 ## Element Types
 
-### Content Elements
-
-The following content element types are named in this specification release. Existing SeaDoc implementations may accept additional types. Each link leads to the corresponding data structure; some types share a page.
+The following element types are documented here. Some types share a reference page. Existing SeaDoc implementations may support additional types.
 
 1. [`blockquote`](data-structure/blockquote.md)
 2. [`callout`](data-structure/callout.md)
