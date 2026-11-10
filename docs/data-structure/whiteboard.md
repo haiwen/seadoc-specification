@@ -2,7 +2,7 @@
 
 `whiteboard` is a block element node that references a whiteboard file. It is a void element.
 
-## Usage and Children
+## Children
 
 - Its `children` contain one empty [text node](text.md) as a structural placeholder. The file reference and display information belong in the element's properties, rather than editable child text. See [Void Elements](../support-types.md#void-elements).
 

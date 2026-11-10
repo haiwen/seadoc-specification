@@ -2,7 +2,7 @@
 
 `image` is an inline element node that represents an image. It is a void element. For an image displayed on its own line, see [Image Block](image_block.md).
 
-## Usage and Children
+## Children
 
 - Its `children` contain one empty [text node](text.md) as a structural placeholder. The image source and link settings belong in `data`; see [Void Elements](../support-types.md#void-elements).
 

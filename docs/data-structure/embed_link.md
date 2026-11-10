@@ -2,7 +2,7 @@
 
 `embed_link` is a block element node that embeds content from an external service, such as SeaTable or Figma. It is a void element.
 
-## Usage and Children
+## Children
 
 - Its `children` contain one empty [text node](text.md) as a structural placeholder. The embedded content is identified by `link` and `link_type`, rather than editable child text. See [Void Elements](../support-types.md#void-elements).
 
@@ -18,7 +18,7 @@
 - `data` (optional, object): saved display settings. It can be omitted when no height is saved.
 - `data.height` (optional, number): positive, finite display height in CSS pixels (`px`), without a unit suffix in JSON. When omitted, the editor uses `300px`.
 
-The editor clamps positive saved heights to `300`–`550` pixels for display and saves resized heights within that range. Non-positive saved heights fall back to `300px`. This display behavior does not require older saved values to already fall within the resize range.
+For display, the editor clamps positive saved heights to `300`–`550` pixels. Non-positive saved heights fall back to `300px`. Historical saved values may fall outside this display range.
 
 ### Example
 

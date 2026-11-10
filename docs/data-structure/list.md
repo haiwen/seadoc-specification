@@ -2,7 +2,7 @@
 
 `ordered_list` and `unordered_list` are block element nodes that represent numbered lists and bulleted lists. Each list item is represented by a `list_item` structural element.
 
-## Usage and Children
+## Children
 
 - Their `children` normally contain `list_item` elements. Text and inline elements belong inside each item's child blocks, rather than directly inside the list.
 - A new `list_item` starts with a [paragraph](paragraph.md). It can also contain nested `ordered_list` or `unordered_list` blocks and [code blocks](code_block.md).

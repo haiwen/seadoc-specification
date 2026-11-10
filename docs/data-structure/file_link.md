@@ -2,7 +2,7 @@
 
 `file_link` is an inline element node that references a non-SeaDoc file, such as a `.md` or `.txt` file. It is a void element.
 
-## Usage and Children
+## Children
 
 - Its `children` contain a [text node](text.md) storing the filename. The editor treats the link as a single unit; the stored filename is not ordinary editable child text.
 

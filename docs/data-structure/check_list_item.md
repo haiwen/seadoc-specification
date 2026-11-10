@@ -2,7 +2,7 @@
 
 `check_list_item` is a block element node that represents a checklist item with a completion state.
 
-## Usage and Children
+## Children
 
 - Its `children` directly contain [text nodes](text.md) and supported inline elements, such as [links](link.md).
 - Each checklist item is its own block.

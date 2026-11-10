@@ -2,7 +2,7 @@
 
 `sdoc_link` is an inline element node that references another SeaDoc file. It is a void element.
 
-## Usage and Children
+## Children
 
 - Its `children` contain a [text node](text.md) storing the display name. The editor treats the link as a single unit; the stored display name is not ordinary editable child text.
 

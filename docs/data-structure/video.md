@@ -2,7 +2,7 @@
 
 `video` is a block element node that represents an uploaded video or an embeddable video link. It is a void element.
 
-## Usage and Children
+## Children
 
 - Its `children` contain one empty [text node](text.md) as a structural placeholder. The video source and display settings belong in `data`, rather than editable child text. See [Void Elements](../support-types.md#void-elements).
 
@@ -19,8 +19,6 @@
 - `data.size` (optional, number or null): non-negative integer size in bytes. An absent field or `null` means the size is unknown, rather than zero bytes.
 - `data.is_embeddable_link` (optional, boolean): `true` renders `src` in an embedded player; `false` renders it as a video file. An absent field behaves as `false`.
 - `data.width` (optional, number): positive, finite display width in CSS pixels (`px`), without a unit suffix in JSON. When omitted, the editor uses `100%` of the available container width.
-
-The video resize control has a minimum width of `150px`. This interaction limit is not a lower bound on every previously saved positive width.
 
 ### Example
 

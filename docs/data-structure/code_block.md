@@ -15,7 +15,7 @@ code_block -> code_line -> text leaf
 
 ### Required Properties
 
-- `language` (required, string): language identifier, such as `javascript`, rather than the display label `Javascript`. The editor's language menu provides `plaintext`, `bash`, `css`, `c`, `cpp`, `csharp`, `go`, `html`, `javascript`, `java`, `json`, `php`, `python`, `ruby`, `sql`, `swift`, `typescript`, `xml`, and `yaml`.
+- `language` (required, string): language identifier, such as `javascript`, rather than the display label `Javascript`. Common values include `plaintext`, `bash`, `css`, `c`, `cpp`, `csharp`, `go`, `html`, `javascript`, `java`, `json`, `php`, `python`, `ruby`, `sql`, `swift`, `typescript`, `xml`, and `yaml`.
 
 ### Optional Properties
 
@@ -24,7 +24,7 @@ code_block -> code_line -> text leaf
 
 ### Editor-Created Defaults
 
-- `language` may be an empty string or `plaintext` when no programming language is set. The editor also recognizes the historical value `text` as plain text in its language menu.
+- `language` may be an empty string or `plaintext` when no programming language is set. The historical value `text` also represents plain text.
 - `style.white_space` is `nowrap` for a newly-created block.
 
 `language` is the native `.sdoc` field.

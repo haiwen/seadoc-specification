@@ -2,7 +2,7 @@
 
 `formula` is a block element node that represents a mathematical formula. It is a void element whose formula source is stored in `data.formula`.
 
-## Usage and Children
+## Children
 
 - Its `children` contain one empty [text node](text.md) as a structural placeholder. The formula source is stored in `data.formula`, rather than in editable child text. See [Void Elements](../support-types.md#void-elements).
 

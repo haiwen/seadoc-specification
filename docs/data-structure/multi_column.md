@@ -2,7 +2,7 @@
 
 `multi_column` is a block element node that arranges document content into columns.
 
-## Usage and Children
+## Children
 
 - Its direct `children` are `column` structural elements.
 - A column contains block content, including [paragraphs](paragraph.md) and supported nested blocks such as [blockquotes](blockquote.md), [callouts](callout.md), [lists](list.md), and [code blocks](code_block.md).
@@ -21,7 +21,7 @@ Each `column` metadata item has:
 - `width` (required, number): positive, finite width in CSS pixels (`px`), without a unit suffix in JSON.
 - `left` (optional, number): non-negative, finite horizontal layout metadata in CSS pixels (`px`). Readers can derive column positions from the ordered widths without requiring this field.
 
-Initial widths are calculated from the available editor width and column count. The editor uses an `80px` minimum when creating or resizing columns; this interaction limit is not a lower bound on every historical layout.
+Initial widths depend on the available layout width and column count. Historical layouts may use other positive widths.
 
 Each child `column` has:
 

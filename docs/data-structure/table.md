@@ -19,7 +19,7 @@ table -> table_row -> table_cell -> text or inline elements
 
 A newly-created rectangular table has these layout fields:
 
-- `columns` (required for newly-created tables, array): ordered column width metadata. Each item's `width` is a positive, finite number in CSS pixels (`px`), without a unit suffix in JSON. The editor calculates initial widths from the available editor width and column count, with a minimum of `35px`.
+- `columns` (required for newly-created tables, array): ordered column width metadata. Each item's `width` is a positive, finite number in CSS pixels (`px`), without a unit suffix in JSON. Initial widths depend on the available layout width and column count.
 - `ui` (required for newly-created tables, object): table display metadata such as `alternate_highlight`.
 - `style.gridTemplateColumns` (required for newly-created tables, string): CSS grid column track list corresponding to the column metadata, for example `repeat(2, 336px)` or `300px 372px`. This CSS string includes length units.
 - `style.gridAutoRows` (required for newly-created tables, string): CSS grid row sizing, initially `minmax(42px, auto)`.
@@ -30,11 +30,11 @@ A newly-created rectangular table has these layout fields:
 ### Field Values
 
 - `ui.alternate_highlight` (boolean): `true` enables alternating row highlighting; `false` disables it. The normal table insertion command uses `false` unless a table template requests highlighting.
-- `table_cell.style.text_align` (string): horizontal alignment. The editor's menu supports `left`, `center`, and `right`.
-- `table_cell.style.align_items` (string): vertical alignment. The editor's menu supports `flex-start` (top), `center`, and `flex-end` (bottom).
+- `table_cell.style.text_align` (string): horizontal alignment, such as `left`, `center`, or `right`.
+- `table_cell.style.align_items` (string): vertical alignment, such as `flex-start` (top), `center`, or `flex-end` (bottom).
 - `table_cell.style.background_color` (string): CSS background color. An absent field or an empty string applies no explicit cell background, allowing table highlighting or the surrounding background to remain visible.
 
-Cell style fields can be absent when no explicit style has been set. `inherit_style` stores styles to apply when inserting cells; its `text_align` and `background_color` fields use the same value conventions as `style`. Numeric widths and heights are pixel values, while grid layout strings contain CSS length units. Editor minimum sizes describe creation and resizing behavior, rather than a blanket rejection rule for historical documents.
+Cell style fields can be absent when no explicit style has been set. `inherit_style` stores styles to apply when inserting cells; its `text_align` and `background_color` fields use the same value conventions as `style`. Numeric widths and heights are pixel values, while grid layout strings contain CSS length units. Positive saved widths and heights in historical documents need not match editor-created defaults.
 
 ### Example
 

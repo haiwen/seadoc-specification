@@ -2,7 +2,7 @@
 
 `link` is an inline element node that represents a hyperlink to a URL, a document element, or a wiki page. It is a non-void element with editable link text.
 
-## Usage and Children
+## Children
 
 - Its `children` contain one or more [text nodes](text.md) forming the link label. Separate leaves can carry different formatting marks.
 - Its label is editable child content; it does not contain block elements.
