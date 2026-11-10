@@ -53,14 +53,16 @@ markdown_extensions:
 # Page tree
 nav:
   - Introduction: readme.md
-  - Seadoc Support Types: support-types.md
+  - SeaDoc Document Model: support-types.md
   - Seadoc Data Structure:
       - Blockquote: data-structure/blockquote.md
       - Callout: data-structure/callout.md
       - Check_list_item: data-structure/check_list_item.md
       - Code_block: data-structure/code_block.md
+      - Divider: data-structure/divider.md
       - Embed link: data-structure/embed_link.md
       - File_link: data-structure/file_link.md
+      - Formula: data-structure/formula.md
       - Header: data-structure/header.md
       - Image: data-structure/image.md
       - Link: data-structure/link.md
@@ -69,5 +71,6 @@ nav:
       - Paragraph: data-structure/paragraph.md
       - Sdoc_link: data-structure/sdoc_link.md
       - Table: data-structure/table.md
+      - Text: data-structure/text.md
       - Video: data-structure/video.md
       - Whiteboard: data-structure/whiteboard.md
