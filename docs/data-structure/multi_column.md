@@ -4,8 +4,7 @@
 
 ## Usage and Children
 
-- It normally appears in the document's top-level `elements` list.
-- Its direct `children` are `column` structural elements. A `column` must belong to a `multi_column`; it is not an independent top-level element.
+- Its direct `children` are `column` structural elements.
 - A column contains block content, including [paragraphs](paragraph.md) and supported nested blocks such as [blockquotes](blockquote.md), [callouts](callout.md), [lists](list.md), and [code blocks](code_block.md).
 - A new column starts with a paragraph containing an empty text node. Text and inline elements belong inside its child blocks.
 

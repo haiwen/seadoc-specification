@@ -4,8 +4,6 @@
 
 ## Usage and Children
 
-- It appears inside a text block, commonly a [paragraph](paragraph.md), [checklist item](check_list_item.md), or [table cell](table.md), rather than directly in the document's `elements` list.
-- The normal insertion command does not insert SeaDoc links inside headings, titles, subtitles, code content, or another link.
 - Its `children` contain a [text node](text.md) storing the display name. The editor treats the link as a single unit; the stored display name is not ordinary editable child text.
 
 ## Data Structure

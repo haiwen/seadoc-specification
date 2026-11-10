@@ -4,7 +4,6 @@
 
 ## Usage and Children
 
-- It can appear in the document's `elements` list, inside a [callout](callout.md), or inside a [column](multi_column.md).
 - Its `children` contain block elements, commonly [paragraphs](paragraph.md), [headings](header.md), [lists](list.md), and [checklist items](check_list_item.md). A blockquote can contain more than one block.
 - Text and inline elements belong inside those child blocks, rather than directly inside the blockquote.
 - When code blocks or tables are pasted into a blockquote, the editor places those elements outside the quote.

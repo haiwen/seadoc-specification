@@ -4,7 +4,6 @@
 
 ## Usage and Children
 
-- It normally appears as a standalone block in the document's `elements` list.
 - Its `children` contain one empty [text node](text.md) as a structural placeholder. The embedded content is identified by `link` and `link_type`, rather than editable child text. See [Void Elements](../support-types.md#void-elements).
 
 ## Data Structure

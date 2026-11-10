@@ -4,9 +4,7 @@
 
 ## Usage and Children
 
-- `image` appears inside a text block such as a [paragraph](paragraph.md) or [table cell](table.md), or inside an [image block](image_block.md). It does not appear directly in the document's `elements` list.
 - Its `children` contain one empty [text node](text.md) as a structural placeholder. The image source and link settings belong in `data`; see [Void Elements](../support-types.md#void-elements).
-- The normal insertion command does not insert images inside headings, titles, subtitles, list items, checklist items, or code content.
 
 ## Data Structure
 

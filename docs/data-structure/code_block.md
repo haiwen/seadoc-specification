@@ -4,9 +4,8 @@
 
 ## Usage and Children
 
-- It can appear in the document's `elements` list, inside a [column](multi_column.md), or as content within a [list item](list.md).
 - Its `children` are `code_line` block elements. Each code line contains [text nodes](text.md) representing one line of code, rather than paragraph or inline link elements.
-- A `code_line` belongs inside a `code_block`, rather than appearing as an independent top-level element. Pasted content is converted into code-line text.
+- Pasted content is converted into code-line text.
 
 ```text
 code_block -> code_line -> text leaf

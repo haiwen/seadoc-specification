@@ -4,7 +4,6 @@
 
 ## Usage and Children
 
-- It normally appears as a standalone block in the document's `elements` list.
 - Its `children` contain one empty [text node](text.md) as a structural placeholder. The formula source is stored in `data.formula`, rather than in editable child text. See [Void Elements](../support-types.md#void-elements).
 
 ## Data Structure

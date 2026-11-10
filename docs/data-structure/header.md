@@ -4,7 +4,6 @@
 
 ## Usage and Children
 
-- They can appear in the document's `elements` list or inside a [blockquote](blockquote.md), [callout](callout.md), or [column](multi_column.md).
 - Their `children` directly contain [text nodes](text.md) and supported inline elements, such as [links](link.md). Content following a heading remains in sibling blocks, rather than becoming its children.
 - The editor moves images out of `header1` through `header6` into a following paragraph.
 - Set `type` to `title` or `subtitle` to use the same structure for a title or subtitle.

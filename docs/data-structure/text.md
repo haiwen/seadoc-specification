@@ -4,8 +4,7 @@ A text node is a leaf node that stores text content and optional formatting mark
 
 ## Usage and Children
 
-- It appears directly inside text blocks such as [paragraphs](paragraph.md), [headings](header.md), [checklist items](check_list_item.md), [table cells](table.md), and [code lines](code_block.md), or inside inline elements such as [links](link.md).
-- Plain text in a block does not require an inline wrapper. A text node does not appear directly in the document's `elements` list.
+- Plain text does not require an inline wrapper.
 - Void elements also retain text children as structural placeholders or stored display labels; those children are not ordinary editable text.
 - A text node has no children.
 

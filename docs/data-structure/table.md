@@ -4,15 +4,14 @@
 
 ## Usage and Children
 
-- It normally appears in the document's top-level `elements` list. The table insertion command does not create tables inside another table, a list, a blockquote, a callout, or a multi-column layout.
-- Its direct `children` are `table_row` elements, whose children are `table_cell` elements. Rows must belong to a table, and cells must belong to a row.
+- Its direct `children` are `table_row` elements, whose children are `table_cell` elements.
 - Cells directly contain [text nodes](text.md) and supported inline elements, such as [links](link.md) and [images](image.md#image). A paragraph wrapper is not required; the editor flattens paragraph children when importing cells.
 
 ```text
 table -> table_row -> table_cell -> text or inline elements
 ```
 
-`table_row` and `table_cell` are structural element types, rather than independent top-level content elements.
+`table_row` and `table_cell` are structural element types.
 
 ## Data Structure
 

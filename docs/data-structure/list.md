@@ -4,10 +4,8 @@
 
 ## Usage and Children
 
-- Lists can appear in the document's `elements` list or inside a [blockquote](blockquote.md), [callout](callout.md), or [column](multi_column.md).
 - Their `children` normally contain `list_item` elements. Text and inline elements belong inside each item's child blocks, rather than directly inside the list.
 - A new `list_item` starts with a [paragraph](paragraph.md). It can also contain nested `ordered_list` or `unordered_list` blocks and [code blocks](code_block.md).
-- Nested lists belong inside a `list_item`. A `list_item` is not an independent top-level content element.
 
 The normal structure is:
 

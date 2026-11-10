@@ -4,7 +4,6 @@
 
 ## Usage and Children
 
-- It can appear in the document's `elements` list or inside a [column](multi_column.md).
 - Its `children` contain block elements such as [paragraphs](paragraph.md), [headings](header.md), [checklist items](check_list_item.md), [lists](list.md), and [blockquotes](blockquote.md). Inline content belongs inside those child blocks.
 - A new callout commonly starts with a paragraph. The editor rejects pasted code blocks and tables; a pasted callout's wrapper is removed when inserting it into another callout.
 

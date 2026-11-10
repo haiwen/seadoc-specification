@@ -4,7 +4,6 @@
 
 ## Usage and Children
 
-- It normally appears as a standalone block in the document's `elements` list to separate sections of content.
 - Its `children` contain one empty [text node](text.md) as a structural placeholder, rather than editable content. See [Void Elements](../support-types.md#void-elements).
 
 ## Data Structure

@@ -4,7 +4,6 @@
 
 ## Usage and Children
 
-- It appears inside a text block such as a [paragraph](paragraph.md), [heading](header.md), [checklist item](check_list_item.md), or [table cell](table.md), rather than directly in the document's `elements` list.
 - Its `children` contain one or more [text nodes](text.md) forming the link label. Separate leaves can carry different formatting marks.
 - Its label is editable child content; it does not contain block elements.
 

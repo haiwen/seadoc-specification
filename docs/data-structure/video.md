@@ -4,7 +4,6 @@
 
 ## Usage and Children
 
-- It normally appears as a standalone block in the document's `elements` list.
 - Its `children` contain one empty [text node](text.md) as a structural placeholder. The video source and display settings belong in `data`, rather than editable child text. See [Void Elements](../support-types.md#void-elements).
 
 ## Data Structure
