@@ -52,25 +52,28 @@ markdown_extensions:
 
 # Page tree
 nav:
-  - Introduction: readme.md
+  - Introduction: index.md
   - SeaDoc Document Model: support-types.md
-  - SeaDoc Data Structure:
-      - Blockquote: data-structure/blockquote.md
-      - Callout: data-structure/callout.md
-      - Checklist Item: data-structure/check_list_item.md
-      - Code Block: data-structure/code_block.md
-      - Divider: data-structure/divider.md
-      - Embed Link: data-structure/embed_link.md
-      - File Link: data-structure/file_link.md
-      - Formula: data-structure/formula.md
-      - Heading: data-structure/header.md
-      - Image: data-structure/image.md
-      - Link: data-structure/link.md
-      - List: data-structure/list.md
-      - Multi Column: data-structure/multi_column.md
-      - Paragraph: data-structure/paragraph.md
-      - SeaDoc Link: data-structure/sdoc_link.md
-      - Table: data-structure/table.md
+  - Node Reference:
       - Text: data-structure/text.md
-      - Video: data-structure/video.md
-      - Whiteboard: data-structure/whiteboard.md
+      - Block Elements:
+          - Paragraph: data-structure/paragraph.md
+          - Heading: data-structure/header.md
+          - Blockquote: data-structure/blockquote.md
+          - Callout: data-structure/callout.md
+          - List: data-structure/list.md
+          - Checklist Item: data-structure/check_list_item.md
+          - Code Block: data-structure/code_block.md
+          - Table: data-structure/table.md
+          - Multi Column: data-structure/multi_column.md
+          - Divider: data-structure/divider.md
+          - Image Block: data-structure/image_block.md
+          - Formula: data-structure/formula.md
+          - Embed Link: data-structure/embed_link.md
+          - Video: data-structure/video.md
+          - Whiteboard: data-structure/whiteboard.md
+      - Inline Elements:
+          - Link: data-structure/link.md
+          - Image: data-structure/image.md
+          - File Link: data-structure/file_link.md
+          - SeaDoc Link: data-structure/sdoc_link.md

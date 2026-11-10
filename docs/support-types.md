@@ -111,7 +111,7 @@ The following content element types are named in this specification release. Exi
 8. [`formula`](data-structure/formula.md)
 9. [`header1` through `header6`](data-structure/header.md)
 10. [`image`](data-structure/image.md#image)
-11. [`image_block`](data-structure/image.md#image_block)
+11. [`image_block`](data-structure/image_block.md#image_block)
 12. [`link`](data-structure/link.md)
 13. [`multi_column`](data-structure/multi_column.md)
 14. [`ordered_list`](data-structure/list.md#ordered_list-nodes)
