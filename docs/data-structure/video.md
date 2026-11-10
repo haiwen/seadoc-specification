@@ -1,17 +1,26 @@
 # Video
 
-`video` is a block-level void element. It follows the [void element](../support-types.md#void-elements) placeholder rule.
+`video` is a block element node that represents an uploaded video or an embeddable video link. It is a void element.
 
-## Required properties
+## Children
+
+- Its `children` contain one empty [text node](text.md) as a structural placeholder. The video source and display settings belong in `data`, rather than editable child text. See [Void Elements](../support-types.md#void-elements).
+
+## Data Structure
+
+### Required Properties
 
 - `data` (required, object): video data.
-- `data.src` (required, string): video source.
+- `data.src` (required, string): non-empty video source. Uploaded videos use an asset path or an absolute HTTP(S) URL. When `data.is_embeddable_link` is `true`, this is the provider's embeddable-player URL, rather than its ordinary watch-page URL.
 
-## Optional properties
-- `data.name` (optional, string or null): video filename or display name.
-- `data.size` (optional, number or null): size in bytes.
-- `data.is_embeddable_link` (optional, boolean): whether `src` is an embeddable video link. The default is `false`.
-- `data.width` (optional, number): saved display width.
+### Optional Properties
+
+- `data.name` (optional, string or null): video filename or display name. When absent, `null`, or empty, the editor uses `data.src` as the display name.
+- `data.size` (optional, number or null): non-negative integer size in bytes. An absent field or `null` means the size is unknown, rather than zero bytes.
+- `data.is_embeddable_link` (optional, boolean): `true` renders `src` in an embedded player; `false` renders it as a video file. An absent field behaves as `false`.
+- `data.width` (optional, number): positive, finite display width in CSS pixels (`px`), without a unit suffix in JSON. When omitted, the editor uses `100%` of the available container width.
+
+### Example
 
 ```json
 {

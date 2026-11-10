@@ -1,9 +1,15 @@
 # Blockquote
 
-Blockquote type nodes represent quoted content, typically used to highlight or display citations, quotes, or references. 
-Blockquote nodes contain a `paragraph` node, which in turn holds a `text` node that displays the quoted content.
+`blockquote` is a block element node that represents quoted content, citations, or references.
 
-## Node structure example
+## Usage and Children
+
+- Its `children` contain block elements, commonly [paragraphs](paragraph.md), [headings](header.md), [lists](list.md), and [checklist items](check_list_item.md). A blockquote can contain more than one block.
+- Text and inline elements belong inside those child blocks, rather than directly inside the blockquote.
+- When code blocks or tables are pasted into a blockquote, the editor places those elements outside the quote.
+
+## Data Structure
+
 ```json
 {
   "id": "awGPshsHSry9cQJuKxvHGg",

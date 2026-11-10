@@ -1,40 +1,55 @@
 # Table
 
-`table` is a block element with the following structural hierarchy:
+`table` is a block element node that represents content arranged into rows and cells.
+
+## Usage and Children
+
+- Its direct `children` are `table_row` elements, whose children are `table_cell` elements.
+- Cells directly contain [text nodes](text.md) and supported inline elements, such as [links](link.md) and [images](image.md#image). A paragraph wrapper is not required; the editor flattens paragraph children when importing cells.
 
 ```text
-table -> table_row -> table_cell
+table -> table_row -> table_cell -> text or inline elements
 ```
 
-`table_row` and `table_cell` are structural element types. They are not independent top-level content elements. Newly-created cells typically contain text leaves or inline content.
+`table_row` and `table_cell` are structural element types.
 
-## Editor-created defaults
+## Data Structure
+
+### Editor-Created Defaults
 
 A newly-created rectangular table has these layout fields:
 
-- `columns` (required for newly-created tables, array): column width metadata. Each item has `width`.
+- `columns` (required for newly-created tables, array): ordered column width metadata. Each item's `width` is a positive, finite number in CSS pixels (`px`), without a unit suffix in JSON. Initial widths depend on the available layout width and column count.
 - `ui` (required for newly-created tables, object): table display metadata such as `alternate_highlight`.
-- `style.gridTemplateColumns` (required for newly-created tables, string): CSS grid column layout.
-- `style.gridAutoRows` (required for newly-created tables, string): CSS grid row layout.
-- `table_row.style.min_height` (required for newly-created rows, number): row minimum height.
+- `style.gridTemplateColumns` (required for newly-created tables, string): CSS grid column track list corresponding to the column metadata, for example `repeat(2, 336px)` or `300px 372px`. This CSS string includes length units.
+- `style.gridAutoRows` (required for newly-created tables, string): CSS grid row sizing, initially `minmax(42px, auto)`.
+- `table_row.style.min_height` (required for newly-created rows, number): positive, finite row minimum height in CSS pixels (`px`), without a unit suffix in JSON. New rows start at `42`.
 - `table_cell.style` (required for newly-created cells, object): cell style.
 - `table_cell.inherit_style` (required for newly-created cells, object): style inherited by inserted cells.
 
-New table cells use `style.align_items` for vertical alignment.
+### Field Values
+
+- `ui.alternate_highlight` (boolean): `true` enables alternating row highlighting; `false` disables it. The normal table insertion command uses `false` unless a table template requests highlighting.
+- `table_cell.style.text_align` (string): horizontal alignment, such as `left`, `center`, or `right`.
+- `table_cell.style.align_items` (string): vertical alignment, such as `flex-start` (top), `center`, or `flex-end` (bottom).
+- `table_cell.style.background_color` (string): CSS background color. An absent field or an empty string applies no explicit cell background, allowing table highlighting or the surrounding background to remain visible.
+
+Cell style fields can be absent when no explicit style has been set. `inherit_style` stores styles to apply when inserting cells; its `text_align` and `background_color` fields use the same value conventions as `style`. Numeric widths and heights are pixel values, while grid layout strings contain CSS length units. Positive saved widths and heights in historical documents need not match editor-created defaults.
+
+### Example
 
 ```json
 {
   "id": "table-id",
   "type": "table",
   "columns": [
-    { "width": 336 },
     { "width": 336 }
   ],
   "ui": {
     "alternate_highlight": false
   },
   "style": {
-    "gridTemplateColumns": "repeat(2, 336px)",
+    "gridTemplateColumns": "repeat(1, 336px)",
     "gridAutoRows": "minmax(42px, auto)"
   },
   "children": [
@@ -70,6 +85,6 @@ New table cells use `style.align_items` for vertical alignment.
 }
 ```
 
-## Compatibility
+### Compatibility
 
 Historical documents may contain `style.alignItems`. New documents use `style.align_items`. Compatibility and migration behavior may depend on the reader implementation.

@@ -1,16 +1,23 @@
-# File_link
+# File Link { #file_link }
 
-File_link type nodes reference a link to an external file in a non-sdoc format, such as .md and .txt and others. File_link nodes are inline nodes, typically wrapped within `paragraph` nodes. Along with generic node attributes, file_link nodes include the following attributes:
+`file_link` is an inline element node that references a non-SeaDoc file, such as a `.md` or `.txt` file. It is a void element.
 
-- `doc_uuid` (required, string) represents the file address within Sdoc.
+## Children
 
-- `title` (required, string) represents the filename.
+- Its `children` contain a [text node](text.md) storing the filename. The editor treats the link as a single unit; the stored filename is not ordinary editable child text.
 
-- `display_type` (required, string) represents display type of file.
+## Data Structure
 
-File_link nodes contain a `text` node that displays the filename.
+### Properties
 
-## Node structure example
+- `doc_uuid` (required, string): referenced file identifier.
+- `title` (required, string): filename.
+- `display_type` (required, string): one of `text_link` (filename only), `icon_link` (file icon and filename), or `card_link` (file card). The insertion command creates `icon_link` by default.
+
+Writers must persist one of these three display modes. For compatibility, a missing or empty `display_type` is displayed as a text link by the editor; this fallback is different from the insertion default.
+
+### Example
+
 ```json
 {
   "id": "afLKcmNdR4ii2ZqvH8PP8w",

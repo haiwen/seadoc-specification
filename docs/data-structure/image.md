@@ -1,18 +1,25 @@
 # Image
 
-Image-related nodes are `image` and `image_block`.
+`image` is an inline element node that represents an image. It is a void element. For an image displayed on its own line, see [Image Block](image_block.md).
 
-## Image
+## Children
 
-`image` is an inline void element. It normally appears in a [paragraph](paragraph.md) or another text container. It follows the [void element](../support-types.md#void-elements) placeholder rule.
+- Its `children` contain one empty [text node](text.md) as a structural placeholder. The image source and link settings belong in `data`; see [Void Elements](../support-types.md#void-elements).
+
+## Data Structure
 
 ### Properties
 
+The `image` element has:
+
 - `data` (required, object): image data.
-- `data.src` (required, string): image source.
-- `data.href` (optional, string): link target for the image.
+- `data.src` (required, string): non-empty image source, commonly a document asset path such as `/image.png` or an absolute image URL. Asset paths are resolved using the reader's document asset context; they are not necessarily paths relative to the documentation site.
+- `data.file_uuid` (optional, string): associated image file identifier.
+- `data.href` (optional, string): absolute HTTP(S) link target for the image. An absent field or an empty string means the image has no hyperlink.
 - `data.linked_wiki_id` (optional, string): target wiki ID for a wiki-page image link.
 - `data.linked_wiki_page_id` (optional, string): target wiki page ID for a wiki-page image link.
+
+### Inline Image Example
 
 ```json
 {
@@ -27,40 +34,6 @@ Image-related nodes are `image` and `image_block`.
   "children": [
     {
       "id": "image-placeholder-id",
-      "text": ""
-    }
-  ]
-}
-```
-
-## Image_block
-
-`image_block` is a block-level wrapper for an inline `image`. Its children may include empty text leaves before or after the image as structural placeholders. Consumers must not require an `image_block` to contain only one child.
-
-```json
-{
-  "id": "image-block-id",
-  "type": "image_block",
-  "children": [
-    {
-      "id": "before-image-id",
-      "text": ""
-    },
-    {
-      "id": "image-id",
-      "type": "image",
-      "data": {
-        "src": "/image.png"
-      },
-      "children": [
-        {
-          "id": "image-placeholder-id",
-          "text": ""
-        }
-      ]
-    },
-    {
-      "id": "after-image-id",
       "text": ""
     }
   ]

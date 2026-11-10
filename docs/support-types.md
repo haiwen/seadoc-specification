@@ -1,8 +1,10 @@
-# SeaDoc support node types
+# SeaDoc Document Model
 
-## Document format
+This page describes the SeaDoc document format, node hierarchy, and element types. Follow the links to individual node pages for detailed data structures.
 
-SeaDoc documents stored on disk use `format_version: 4`. The persisted document envelope is:
+## Document Format
+
+SeaDoc documents stored on disk use `format_version: 4` and have the following structure:
 
 ```json
 {
@@ -13,28 +15,69 @@ SeaDoc documents stored on disk use `format_version: 4`. The persisted document 
 }
 ```
 
-- `version` is required and records the document revision number.
-- `format_version` is required and is `4` for the current on-disk format.
-- `elements` is required and contains the top-level element nodes.
-- `last_modify_user` is required and records the last modifying user. It may be an empty string when no user is available.
+All four fields are required:
 
-`cursors` is runtime collaboration response state. It is not part of the on-disk `.sdoc` format.
+- `version`: document revision number.
+- `format_version`: document format version, currently `4`.
+- `elements`: list of top-level element nodes.
+- `last_modify_user`: last modifying user, or an empty string when no user is available.
 
-## Nodes
+`cursors` belongs to runtime collaboration responses and is not stored in the `.sdoc` file.
 
-Every node `id` is a required, non-empty string that is unique within its document. Consumers must not require a particular UUID or slug format.
+## Node Structure
 
-### Element nodes
+A SeaDoc document is a tree with three node categories:
 
-An element node normally has:
+1. **Document root**: the document itself, containing top-level element nodes in its `elements` property.
+2. **Element nodes**: containers holding other element nodes or text nodes in their `children` property.
+3. **Text nodes**: leaf nodes containing text content and optional formatting marks.
+
+Every element and text node requires a non-empty string `id` that is unique within the document. Consumers must not require a particular UUID or slug format.
+
+### Element Nodes
+
+Element nodes can be block elements, which form separate blocks of content, or inline elements, which flow with text inside a block. Both groups include non-void and void elements.
+
+All element nodes, including void and non-void elements, have:
 
 - `id` (required, string): unique node identifier.
 - `type` (required, string): element type.
 - `children` (required, array): child nodes.
 
-Some elements have additional fields or a `data` object. See the page for that element type.
+Element-specific fields, including any `data` object, are documented on the corresponding [element pages](#element-types).
 
-### Text leaves
+#### Non-Void Elements
+
+Non-void elements expose their child content for editing. Examples include:
+
+- **Block elements**: [`paragraph`](data-structure/paragraph.md) and [`blockquote`](data-structure/blockquote.md).
+- **Inline elements**: [`link`](data-structure/link.md).
+
+#### Void Elements
+
+Void elements are treated as a single unit rather than exposing their children as editable text. Examples include:
+
+- **Block elements**: [`divider`](data-structure/divider.md) and [`formula`](data-structure/formula.md).
+- **Inline elements**: [`image`](data-structure/image.md) and [`sdoc_link`](data-structure/sdoc_link.md).
+
+Block and inline void elements still have `children`. Most, including block void elements and inline images, contain an empty text leaf as a structural placeholder, with visible content stored in element properties. File links and SeaDoc links can retain their display names in text children. Those stored labels are not editable child content; void elements do not require every persisted text child to be empty.
+
+For example, a [`divider`](data-structure/divider.md) has the following structure:
+
+```json
+{
+  "id": "element-id",
+  "type": "divider",
+  "children": [
+    {
+      "id": "placeholder-id",
+      "text": ""
+    }
+  ]
+}
+```
+
+### Text Nodes
 
 A text leaf has:
 
@@ -50,97 +93,31 @@ Text leaves do not require `type` or `children`. For example:
 }
 ```
 
-### Void elements
+See [Text](data-structure/text.md) for the full text node documentation, including supported [formatting marks](data-structure/text.md#text-formatting-marks).
 
-A void element stores its user-visible content in element properties rather than editable text. It still has `children`. The empty text leaf in `children` is a structural placeholder, not user content. Void does not mean the element has no `children`.
+## Element Types
 
-```json
-{
-  "id": "element-id",
-  "type": "divider",
-  "children": [
-    {
-      "id": "placeholder-id",
-      "text": ""
-    }
-  ]
-}
-```
+The following element types are documented here. Some types share a reference page. Existing SeaDoc implementations may support additional types.
 
-#### Divider
-
-`divider` is a block-level void element representing a horizontal divider. It has no additional properties.
-
-Historical documents may contain `type: "hr"`. New documents use `type: "divider"`. Compatibility and migration behavior may depend on the reader implementation.
-
-#### Formula
-
-`formula` is a block-level void element. Its formula source is stored in `data.formula`.
-
-- `data` (required, object): formula data.
-- `data.formula` (required, string): formula source.
-
-```json
-{
-  "id": "formula-id",
-  "type": "formula",
-  "data": {
-    "formula": "E = mc^2"
-  },
-  "children": [
-    {
-      "id": "formula-placeholder-id",
-      "text": ""
-    }
-  ]
-}
-```
-
-### Rich-text marks
-
-Text leaves may carry the following formatting fields:
-
-- `bold`, `italic`, `underline`, `strikethrough`, `superscript`, `subscript`, and `code` (optional, boolean).
-- `color` and `highlight_color` (optional, string).
-- `font_size` (optional, number).
-- `font` (optional, string).
-
-Revision, diff, comment, selection, cursor, AI, and syntax-decoration fields are not ordinary rich-text formatting fields in this specification.
-
-## Node types
-
-### Content element types
-
-The following element types are named in this specification release. This list is not a complete inventory of every element accepted by existing SeaDoc implementations. A name in this list does not mean the type has a dedicated structure page.
-
-1. blockquote
-2. callout
-3. check_list_item
-4. code_block
-5. divider
-6. embed_link
-7. file_link
-8. formula
-9. header1 through header6
-10. image
-11. image_block
-12. link
-13. multi_column
-14. ordered_list
-15. paragraph
-16. sdoc_link
-17. subtitle
-18. table
-19. title
-20. unordered_list
-21. video
-22. whiteboard
-
-### Structural element types
-
-The following types occur only as children of their owning content element:
-
-- `code_line` within `code_block`.
-- `table_row` within `table`.
-- `table_cell` within `table_row`.
-- `column` within `multi_column`.
+1. [`blockquote`](data-structure/blockquote.md)
+2. [`callout`](data-structure/callout.md)
+3. [`check_list_item`](data-structure/check_list_item.md)
+4. [`code_block`](data-structure/code_block.md)
+5. [`divider`](data-structure/divider.md)
+6. [`embed_link`](data-structure/embed_link.md)
+7. [`file_link`](data-structure/file_link.md)
+8. [`formula`](data-structure/formula.md)
+9. [`header1` through `header6`](data-structure/header.md)
+10. [`image`](data-structure/image.md#image)
+11. [`image_block`](data-structure/image_block.md#image_block)
+12. [`link`](data-structure/link.md)
+13. [`multi_column`](data-structure/multi_column.md)
+14. [`ordered_list`](data-structure/list.md#ordered_list-nodes)
+15. [`paragraph`](data-structure/paragraph.md)
+16. [`sdoc_link`](data-structure/sdoc_link.md)
+17. [`subtitle`](data-structure/header.md)
+18. [`table`](data-structure/table.md)
+19. [`title`](data-structure/header.md)
+20. [`unordered_list`](data-structure/list.md#unordered_list-nodes)
+21. [`video`](data-structure/video.md)
+22. [`whiteboard`](data-structure/whiteboard.md)

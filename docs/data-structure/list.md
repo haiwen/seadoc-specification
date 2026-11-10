@@ -1,21 +1,22 @@
 # List
 
-List-related type nodes are used to represent ordered and unordered lists. List-related nodes consist of the following node types:
+`ordered_list` and `unordered_list` are block element nodes that represent numbered lists and bulleted lists. Each list item is represented by a `list_item` structural element.
 
-**Ordered_list nodes**
+## Children
 
-`ordered_list`  nodes represent an ordered list, where items are numbered.
+- Their `children` normally contain `list_item` elements. Text and inline elements belong inside each item's child blocks, rather than directly inside the list.
+- A new `list_item` starts with a [paragraph](paragraph.md). It can also contain nested `ordered_list` or `unordered_list` blocks and [code blocks](code_block.md).
 
-**Unordered_list nodes**
+The normal structure is:
 
-`unordered_list` nodes represent an unordered list, where items are marked with bullet points.
+```text
+ordered_list / unordered_list -> list_item -> paragraph -> text or inline elements
+```
 
-Both of list nodes include `list_item`（required, node）child nodes, representing individual items within the list.
-Each list_item node contains a `paragraph` node, which in turn holds a `text` node that displays the content of the list item.
+## Data Structure
 
-## Node structure example
+### Ordered List { #ordered_list-nodes }
 
-### Ordered_list nodes
 ```json
 {
   "id": "S927zAqWQHOkmLEvFespbw",
@@ -52,7 +53,9 @@ Each list_item node contains a `paragraph` node, which in turn holds a `text` no
   ]
 }
 ```
-### Unordered_list nodes
+
+### Unordered List { #unordered_list-nodes }
+
 ```json
 {
   "id": "S927zAqWQHOkmLEvFespbw",

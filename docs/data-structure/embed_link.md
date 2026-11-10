@@ -1,14 +1,26 @@
-# Embed link
+# Embed Link
 
-`embed_link` is a block-level void element that embeds an external service. It follows the [void element](../support-types.md#void-elements) placeholder rule.
+`embed_link` is a block element node that embeds content from an external service, such as SeaTable or Figma. It is a void element.
 
-## Required properties
+## Children
 
-- `link` (required, string): embedded URL.
+- Its `children` contain one empty [text node](text.md) as a structural placeholder. The embedded content is identified by `link` and `link_type`, rather than editable child text. See [Void Elements](../support-types.md#void-elements).
+
+## Data Structure
+
+### Required Properties
+
+- `link` (required, string): non-empty, absolute HTTP(S) URL of the embedded resource.
 - `link_type` (required, string): embed provider. Current values are `seatable` and `figma`.
 
-## Optional properties
-- `data.height` (optional, number): saved display height.
+### Optional Properties
+
+- `data` (optional, object): saved display settings. It can be omitted when no height is saved.
+- `data.height` (optional, number): positive, finite display height in CSS pixels (`px`), without a unit suffix in JSON. When omitted, the editor uses `300px`.
+
+For display, the editor clamps positive saved heights to `300`–`550` pixels. Non-positive saved heights fall back to `300px`. Historical saved values may fall outside this display range.
+
+### Example
 
 ```json
 {
