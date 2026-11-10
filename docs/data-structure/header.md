@@ -1,4 +1,4 @@
-# Header
+# Heading { #header }
 
 `header1` through `header6` are block element nodes that represent six levels of headings. `title` and `subtitle` represent document titles and subtitles and use the same node structure.
 

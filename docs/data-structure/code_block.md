@@ -1,4 +1,4 @@
-# Code_block
+# Code Block { #code_block }
 
 `code_block` is a block element node that represents source code across one or more lines.
 

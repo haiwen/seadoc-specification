@@ -1,4 +1,4 @@
-# Sdoc_link
+# SeaDoc Link { #sdoc_link }
 
 `sdoc_link` is an inline element node that references another SeaDoc file. It is a void element.
 

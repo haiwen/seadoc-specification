@@ -10,7 +10,7 @@
 - Its `children` contain one empty [text node](text.md) as a structural placeholder. The image source and link settings belong in `data`; see [Void Elements](../support-types.md#void-elements).
 - The normal insertion command does not insert images inside headings, titles, subtitles, list items, checklist items, or code content.
 
-### Image_block
+### Image Block { #image_block }
 
 - `image_block` normally appears in the document's top-level `elements` list. Inserting a single image into an empty top-level paragraph creates this block.
 - Its `children` contain one inline `image`, with text leaves before and after it for cursor placement. These leaves can be empty; consumers must not require an `image_block` to contain only one child.

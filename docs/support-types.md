@@ -38,15 +38,15 @@ Every element and text node requires a non-empty string `id` that is unique with
 
 Element nodes can be block elements, which form separate blocks of content, or inline elements, which flow with text inside a block. Both groups include non-void and void elements.
 
-#### Non-Void Elements
-
-An element node normally has:
+All element nodes, including void and non-void elements, have:
 
 - `id` (required, string): unique node identifier.
 - `type` (required, string): element type.
 - `children` (required, array): child nodes.
 
 Element-specific fields, including any `data` object, are documented on the corresponding [element pages](#element-types).
+
+#### Non-Void Elements
 
 Non-void elements expose their child content for editing. Examples include:
 

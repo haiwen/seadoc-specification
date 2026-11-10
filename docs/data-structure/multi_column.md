@@ -1,4 +1,4 @@
-# Multi column
+# Multi Column
 
 `multi_column` is a block element node that arranges document content into columns.
 

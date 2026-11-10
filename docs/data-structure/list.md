@@ -17,7 +17,7 @@ ordered_list / unordered_list -> list_item -> paragraph -> text or inline elemen
 
 ## Data Structure
 
-### Ordered_list nodes
+### Ordered List { #ordered_list-nodes }
 
 ```json
 {
@@ -56,7 +56,7 @@ ordered_list / unordered_list -> list_item -> paragraph -> text or inline elemen
 }
 ```
 
-### Unordered_list nodes
+### Unordered List { #unordered_list-nodes }
 
 ```json
 {

@@ -1,4 +1,4 @@
-# Embed link
+# Embed Link
 
 `embed_link` is a block element node that embeds content from an external service, such as SeaTable or Figma. It is a void element.
 
