@@ -59,6 +59,8 @@ nav:
       - Block Elements:
           - Paragraph: data-structure/paragraph.md
           - Heading: data-structure/header.md
+          - Title: data-structure/title.md
+          - Subtitle: data-structure/subtitle.md
           - Blockquote: data-structure/blockquote.md
           - Callout: data-structure/callout.md
           - List: data-structure/list.md
